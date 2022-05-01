@@ -2,6 +2,7 @@ version: '3.2'
 services:
   sftp:
     image: atmoz/sftp:alpine
+    restart: unless-stopped
     volumes:
         - /mnt/data:/home/${SFTP_USER}/data
     ports:
