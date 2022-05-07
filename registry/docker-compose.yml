@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  registry:
+    image: registry:2
+    restart: unless-stopped
+    environment:
+      - REGISTRY_AUTH=htpasswd
+      - REGISTRY_AUTH_HTPASSWD_REALM=Registry Helm
+      - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
+    volumes:
+      - /home/george/data/configs/registry/auth:/auth
+      - /home/george/data/configs/registry/data:/var/lib/registry
+    ports:
+      - 5000:5000

@@ -1,0 +1,9 @@
+** Setup registry
+
+generate a password with on ~.../configs/registry/auth~ with follow command
+
+#+begin_src shell
+docker run \
+  --entrypoint htpasswd \
+  httpd:2 -Bbn testuser testpassword > auth/htpasswd
+#+end_src
